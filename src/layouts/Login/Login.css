@@ -53,13 +53,15 @@
 }
 .login_input {
     width: 100%;
-    padding: 14px 16px;
+    padding:16px;
     border-radius: 12px;
     border: 1px solid var(--border);
     background: transparent;
     color: var(--text);
     outline: none;
     transition: 0.3s;
+    font-weight: 200;
+    font-size: small;
 }
 .login_input:focus {
     box-shadow: 1px 1px 0 1px var(--shadow);

@@ -4,15 +4,19 @@ import "react-toastify/dist/ReactToastify.css";
 import "./Login.css"
 import lightLogo from "../../../public/icon/light logo.png"
 import darkLogo from "../../../public/icon/dark logo.png"
+import { useNavigate } from 'react-router-dom';
 
 function Login({mode}) {
   const APIKEY = "AIzaSyBSoQog_dss1CgWGq5lTJ0g5iR1R7Waq_M"
   const [isLoginOrRegistor, setIsLoginOrRegistor] = useState(true)
   const [loginObject, setLoginObject] = useState({email: "", password: ""})
   const [registorObject, setRegistorObject] = useState({email: "", password:"",name:"", image: null})
+  const [locading, setLoading] = useState(false)
+  const navigate = useNavigate("")
 
   async function registor(registorObject){
     try{
+      setLoading(true)
       if(!registorObject.email || !registorObject.password || !registorObject.name || !registorObject.image){
         toast.error("You have to change input info")
         return
@@ -33,18 +37,23 @@ function Login({mode}) {
       if(data){
         localStorage.setItem("token", data?.idToken)
         localStorage.setItem("localId", data?.localId)
-        toast.success("You are creating accaunt!")
         createAccaunt(registorObject)
+        toast.success("You are creating accaunt!")
+        navigate("/layout")
       }else{
         toast.error(`Error: your info have the problem`)
       }
     }catch(err){
       console.log(err.message)
       toast.error(`error ${err.message}`)
+    }finally{
+      setLoading(false)
+      toast.info("Your loading finally")
     }
   }
   async function createAccaunt(registorObject){
     try{
+      setLoading(true)
       if(!registorObject.email || !registorObject.password || !registorObject.name || !registorObject.image){
         toast.error("You have to change input info")
         return
@@ -63,22 +72,26 @@ function Login({mode}) {
             "Content-Type": "application/json"
           },
           body: JSON.stringify({
-            email: email,
-            passwod: password,
-            name: name,
+            email: registorObject.email,
+            passwod: registorObject.password,
+            name: registorObject.name,
             image: imageUrl
           })
         })
       }
 
-      reader.readAsDataURL(image);
+      reader.readAsDataURL(registorObject.image);
     }catch(err){
       console.log(err.message)
+    }finally{
+      setLoading(false)
+      toast.info("Your loading finally")
     }
   }
 
   async function login(loginObject){
     try{
+      setLoading(true)
       if(!loginObject.email || !loginObject.password){
         toast.error("You have to change input info")
         return
@@ -100,14 +113,19 @@ function Login({mode}) {
         localStorage.setItem("token", data?.idToken)
         localStorage.setItem("localId", data?.localId)
         toast.success("Successfully logged in!")
+        navigate("/layout")
       }else{
         toast.error(`Error: your info have the problem`)
       }
     }catch(err){
       console.log(err.message)
       toast.error(`error ${err.message}`)
+    }finally{
+      setLoading(false)
+      toast.info("Your loading finally")
     }
   }
+  
   return (<div className='body'>
       <main className="site__main">
         {isLoginOrRegistor && <section className="login">
