@@ -1,0 +1,30 @@
+.layout__prayer{
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    grid-template-rows: 90px 1fr;
+}
+.site__header{
+    display: grid;
+    grid-column: 1/3;
+    grid-row: 1/2;
+    background: var(--surface);
+    width: 100%;
+    height: 100%;
+    border-bottom: 2px solid var(--border);
+    box-shadow: 4px 4px 5px 0px var(--shadow);
+}
+.site__main{
+    display: grid;
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+.site__sidebar{
+    display: grid;
+    grid-column: 2/3;
+    grid-row: 2/3;
+    background: var(--surface);
+    width: 100%;
+    height: 100%;
+    border-left: 2px solid var(--border);
+    box-shadow: -4px 4px 5px 0px var(--shadow);
+}

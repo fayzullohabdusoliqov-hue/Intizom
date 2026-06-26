@@ -1,0 +1,60 @@
+.site__header{
+    position: sticky;
+    top: 0;
+    z-index: 20;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+.header__logo{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+.header_title{
+    font-size: larger;
+    font-weight: 600;
+    color: var(--text);
+}
+.header_small{
+    font-size: x-small;
+    font-weight: 200;
+    color: var(--text);
+}
+
+.navbar__list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+}
+.navbar_link{
+    color: var(--text);
+    font-size: large;
+    font-weight: 300;
+}
+
+.header__btn{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+.header_btn{
+    background: var(--primary);
+    padding: 10px;
+    border: 2px solid var(--border);
+    transition: 0.3s linear;
+    border-radius: 10px;
+    padding: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header_btn:hover{
+    background: var(--primary-hover);
+}

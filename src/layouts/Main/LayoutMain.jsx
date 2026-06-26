@@ -5,9 +5,9 @@ import Sidebar from '../../components/Sidebar/Sidebar'
 import { Outlet } from 'react-router-dom'
 
 function LayoutMain({mode, setMode}) {
-  return (<div className='body layout__main'>
+  return (<div className='body'>
       <Header mode={mode} setMode={setMode}/>
-      <Sidebar/>~
+      <Sidebar/>
       <Outlet/>
   </div>)
 }

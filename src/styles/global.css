@@ -32,6 +32,10 @@
   height: 100vh;
   font-family: "Roboto";
   color: var(--text);
+
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  grid-template-rows: 90px 1fr;
 }
 .conteyner{
   max-width: 1200px;
