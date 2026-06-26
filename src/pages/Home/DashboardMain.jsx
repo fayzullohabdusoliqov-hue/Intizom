@@ -1,11 +1,9 @@
 import React from 'react'
 
 function DashboardMain() {
-  return (
-    <div>
-      
-    </div>
-  )
+  return (<main className='site__main'>
+      main
+  </main>)
 }
 
 export default DashboardMain

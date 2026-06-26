@@ -21,7 +21,7 @@ function App() {
     },
     {
       path: "layout",
-      element: <LayoutMain/>,
+      element: <LayoutMain mode={mode} setMode={setMode}/>,
       children: [
         {
           index: true,
